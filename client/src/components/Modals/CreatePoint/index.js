@@ -37,6 +37,7 @@ const CreatePoint = ({
                 type,
                 speed,
                 frequency,
+                password,
                 coordinates: {
                     lat: place.geometry.location.lat(),
                     lng: place.geometry.location.lng()

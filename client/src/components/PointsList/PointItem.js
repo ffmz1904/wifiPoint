@@ -7,10 +7,10 @@ import ConfirmModal from "../Modals/ConfirmModal";
 import UpdatePoint from "../Modals/UpdatePoint";
 import {deletePoint} from "../../actions/wifiPoints";
 
-const PointItem = ({ point, isAdmin, editPoint, deletePoint }) => {
+const PointItem = ({ point, isAdmin, deletePoint }) => {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [openUpdateModal, setOpenUpdateModal] = useState(false);
-
+    console.log(point)
     return (
         <div className="PointItem">
             <ConfirmModal
