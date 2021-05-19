@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const router = require('./server/routes');
 
-const PORT = process.env.PORT || "4000";
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'client', 'build')));
