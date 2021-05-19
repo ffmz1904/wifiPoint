@@ -1,0 +1,19 @@
+@import "src/colors";
+
+.ui.container.Points {
+  h2 {
+    display: flex;
+    justify-content: space-between;
+
+    .ui.button {
+      color: #fff;
+      background: $color_btn_green;
+
+      &:hover {
+        color: $color_btn_green;
+        background: #fff;
+        border: 1px solid;
+      }
+    }
+  }
+}

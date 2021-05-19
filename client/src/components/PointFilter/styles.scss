@@ -1,0 +1,75 @@
+@import "src/colors";
+
+.PointFilter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  h2 {
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      cursor: pointer;
+      border-bottom: 1px solid $color_blue;
+    }
+  }
+
+  .ui.form {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $color_grey;
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+
+      .ui.input, .pac-target-input, .inline.fields {
+        width: 49%;
+      }
+
+      .inline.fields {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        label {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 5px;
+        }
+      }
+
+      &:last-child {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 30px;
+
+        .ui.button.filter {
+          color: #fff;
+          background-color: $color_blue;
+          margin-right: 20px;
+
+          &:hover {
+            color: $color_blue;
+            background-color: #fff;
+            border: 1px solid;
+          }
+        }
+
+        .ui.button.clear {
+          color: #fff;
+          background-color: #db2828;
+
+          &:hover {
+            color: #db2828;
+            background-color: #fff;
+            border: 1px solid;
+          }
+        }
+      }
+    }
+  }
+}

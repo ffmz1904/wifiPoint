@@ -1,0 +1,16 @@
+.ui.container.Home {
+  display: flex;
+
+  .rightBlock {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 50px;
+
+    .PointsList {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      margin-top: 15px;
+    }
+  }
+}

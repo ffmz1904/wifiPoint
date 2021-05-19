@@ -1,0 +1,31 @@
+.ui.modal.UpdatePoint {
+  .content {
+    .description {
+      .error {
+        color: red;
+        text-align: center;
+        padding-bottom: 15px;
+      }
+
+      .ui.form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .ui.input, .inline.fields, .pac-target-input, & > input {
+          margin-bottom: 20px;
+        }
+
+        .ui.input, .pac-target-input, & > input {
+          width: 400px;
+        }
+
+        .inline.fields {
+          & >   label {
+            margin-right: 50px;
+          }
+        }
+      }
+    }
+  }
+}

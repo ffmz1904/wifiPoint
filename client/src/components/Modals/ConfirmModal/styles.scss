@@ -1,0 +1,19 @@
+.ui.modal.ConfirmModal {
+  width: 300px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 50px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+}
