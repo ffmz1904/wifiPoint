@@ -8,7 +8,7 @@ const router = require('./server/routes');
 const PORT = process.env.PORT || 8000;
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client')));
 app.use(cors());
 app.use(express.json());
 
@@ -19,6 +19,7 @@ app.use('/*', (req, res) => {
 
 const start = async () => {
     try {
+        console.log(process.env.DB_URL)
         await mongoose.connect(process.env.DB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
