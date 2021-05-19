@@ -7,13 +7,16 @@ import Preloader from "../../components/Preloader";
 import Map from "../../components/Map";
 import PointFilter from "../../components/PointFilter";
 import {getAllPoints} from "../../actions/wifiPoints";
-import "./styes.scss";
 import PointsList from "../../components/PointsList";
+import "./styes.scss";
 
 const Home = ({
     points,
     getAllPoints
 }) => {
+    const mapWidth = document.documentElement.clientWidth > 768 ? "50%" : "90%";
+    const mapHeight = document.documentElement.clientWidth > 768 ? "100%" : "40%";
+
     const [loading, setLoading] = useState(true);
     const [filterRadius, setFilterRadius] = useState(false);
 
@@ -26,11 +29,10 @@ const Home = ({
         return <Preloader />;
     }
 
-    console.log(points);
     return (
         <div className="page">
             <Container className="Home">
-                <Map points={points} width="50%" height="100%" filterRadius={filterRadius} />
+                <Map points={points} width={mapWidth} height={mapHeight} filterRadius={filterRadius} />
                 <div className="rightBlock">
                     <PointFilter setFilterMarker={setFilterRadius} />
                     <PointsList points={points} />

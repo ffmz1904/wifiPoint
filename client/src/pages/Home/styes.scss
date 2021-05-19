@@ -14,3 +14,21 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .ui.container.Home {
+    flex-direction: column;
+    align-items: center;
+
+    .rightBlock {
+      width: 90%;
+      height: 70%;
+      margin-top: 20px;
+      margin-left: 0;
+
+      .PointsList {
+        padding-right: 15px;
+      }
+    }
+  }
+}

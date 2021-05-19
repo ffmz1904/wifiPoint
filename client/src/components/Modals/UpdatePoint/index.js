@@ -16,7 +16,10 @@ const UpdatePoint = ({
     updatePoint
 }) => {
     const [name, setName] = useState(point.name);
-    const [coordinates, setCoordinates] = useState(point.coordinates);
+    const [coordinates, setCoordinates] = useState({
+        lat: point.location.coordinates[0],
+        lng: point.location.coordinates[1]
+    });
     const [address, setAddress] = useState(point.address);
     const [type, setType] = useState(point.type);
     const [password, setPassword] = useState(point.password);

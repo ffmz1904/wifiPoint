@@ -16,7 +16,6 @@ const Map = ({
         lng: 22.287883
     };
     const zoom = 14;
-    console.log(filterRadius)
     return (
         <div className="Map" style={{ height: height, width: width }}>
             <GoogleMapReact

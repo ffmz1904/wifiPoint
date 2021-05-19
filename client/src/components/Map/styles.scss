@@ -1,6 +1,9 @@
 @import "src/colors";
 
 .Map {
+  width: 50%;
+  height: 100%;
+
   .Marker {
     width: 30px;
     height: 30px;
@@ -16,6 +19,13 @@
       opacity: 0.9;
       box-shadow: 0 0 3px 3px $color_blue;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .Map {
+    width: 100%;
+    height: 30%;
   }
 }
 

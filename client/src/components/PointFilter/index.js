@@ -22,8 +22,8 @@ const PointFilter = ({
     const [radius, setRadius] = useState('');
     const [name, setName] = useState('');
     const [speed, setSpeed] = useState('');
-    const [type, setType] = useState('all');
-    const [frequency, setFrequency] = useState('all');
+    const [type, setType] = useState('allTypes');
+    const [frequency, setFrequency] = useState('allFrequency');
 
     const changeAddress = (address) =>  {
       setPlace('');
@@ -47,8 +47,8 @@ const PointFilter = ({
             radius,
             name,
             speed,
-            type: type !== 'all' ? type : '',
-            frequency: frequency !== 'all' ? frequency : ''
+            type: type !== 'allTypes' ? type : '',
+            frequency: frequency !== 'allFrequency' ? frequency : ''
         };
 
         if (address && !place.formatted_address) {
@@ -73,8 +73,8 @@ const PointFilter = ({
         setPlace('');
         setRadius('');
         setName('');
-        setType('all');
-        setFrequency('all');
+        setType('allTypes');
+        setFrequency('allFrequency');
 
         getAllPoints();
         setFilterMarker(false);
@@ -125,15 +125,15 @@ const PointFilter = ({
                         <label>Type: </label>
                         <Form.Radio
                             label='All'
-                            value='all'
-                            checked={type === 'all'}
-                            onChange={(e) => setType('all')}
+                            value='allTypes'
+                            checked={type === 'allTypes'}
+                            onChange={() => setType('allTypes')}
                         />
                         <Form.Radio
                             label='Open'
                             value='open'
                             checked={type === 'open'}
-                            onChange={(e) => setType('open')}
+                            onChange={() => setType('open')}
                         />
                         <Form.Radio
                             label='Secure'
@@ -146,15 +146,15 @@ const PointFilter = ({
                         <label>Frequency (ГГц)</label>
                         <Form.Radio
                             label='All'
-                            value='all'
-                            checked={type === 'all'}
-                            onChange={(e) => setType('all')}
+                            value='allFrequency'
+                            checked={type === 'allFrequency'}
+                            onChange={() => setFrequency('allFrequency')}
                         />
                         <Form.Radio
                             label='2.4'
                             value={2.4}
                             checked={frequency === 2.4}
-                            onChange={(e) => setFrequency(2.4)}
+                            onChange={() => setFrequency(2.4)}
                         />
                         <Form.Radio
                             label='5'

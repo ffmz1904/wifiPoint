@@ -38,3 +38,15 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .ui.container.Auth {
+    form {
+      width: 100%;
+
+      .ui.input {
+        width: 90%;
+      }
+    }
+  }
+}
