@@ -16,7 +16,6 @@ const App = ({
     isAdmin
 }) => {
     const [openCreateForm, setOpenCreateForm] = useState(false);
-
     useEffect(() => {
         checkAuth();
     }, []);

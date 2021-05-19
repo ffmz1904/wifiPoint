@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const apiUrl = 'http://localhost:8000/';  // dev
-const apiUrl = 'https://localhost:46177/';  // heroku
+const apiUrl = 'http://localhost:8000/';  // dev
 
 const $host = axios.create({
     baseURL: apiUrl
