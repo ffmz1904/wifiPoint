@@ -21,7 +21,6 @@ module.exports = async (req, res) => {
             user
         });
     } catch (e) {
-        console.log(e.message)
         res.status(500).json({
             error: true,
             message: ERROR.SOMETHING_WAS_WRONG

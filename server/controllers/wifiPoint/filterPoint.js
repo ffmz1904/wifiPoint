@@ -1,5 +1,6 @@
 const { ERROR } = require('../../utils/errors');
 const WifiPoint = require('../../models/WifiPoint');
+const getDistance = require('../../helpers/searchDistance');
 
 module.exports = async (req, res) => {
     const { name, type, frequency, speed, coordinates, radius } = req.body;
@@ -22,28 +23,30 @@ module.exports = async (req, res) => {
         filterQuery.speed = { $gte: speed };
     }
 
-    if (coordinates) {
-        filterQuery.location = {
-            $near: {
-                $geometry: {
-                    type: "Point",
-                    coordinates: [coordinates.lat, coordinates.lng],
-                },
-                $maxDistance: radius ? radius : 1
-            }
-        }
-    }
-    // console.log(filterQuery)
-
     try {
-        const points = await WifiPoint.find(filterQuery);
+        let points = await WifiPoint.find(filterQuery);
+
+        if (coordinates) {
+            points = points.filter(point => {
+               const pointsDistance = getDistance({
+                   lat: point.location.coordinates[0],
+                   lng: point.location.coordinates[1]
+               }, {
+                   lat: coordinates.lat,
+                   lng: coordinates.lng
+               });
+
+               if (pointsDistance <= radius) {
+                   return point;
+               }
+            });
+        }
 
         res.status(200).json({
             success: true,
             points
         });
     } catch (e) {
-        console.log(e.message);
         res.status(500).json({
             error: true,
             message: ERROR.SOMETHING_WAS_WRONG

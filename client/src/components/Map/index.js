@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import GoogleMapReact from 'google-map-react';
+import GoogleMapReact, {meters2ScreenPixels} from 'google-map-react';
 import {API_KEY} from "../../googleKey";
 import Marker from "./Marker";
 import './styles.scss';
@@ -11,11 +11,21 @@ const Map = ({
     points,
     filterRadius
 }) => {
+    const [zoom, setZoom] = useState(14);
+    let radW = 0;
+    let radH = 0;
+
     const center = {
         lat: 48.6208,
         lng: 22.287883
     };
-    const zoom = 14;
+
+    if (filterRadius) {
+        const {w, h} = meters2ScreenPixels(Number(filterRadius.radius) * 2, {lat: filterRadius.coordinates.lat, lng: filterRadius.coordinates.lng}, zoom);
+        radW = w;
+        radH = h;
+    }
+
     return (
         <div className="Map" style={{ height: height, width: width }}>
             <GoogleMapReact
@@ -23,6 +33,7 @@ const Map = ({
                 defaultCenter={center}
                 center={filterRadius ? filterRadius.coordinates : center}
                 defaultZoom={zoom}
+                onZoomAnimationEnd={(value) => setZoom(value)}
             >
                 { points.length &&
                     points.map(point =>
@@ -30,8 +41,19 @@ const Map = ({
                             key={point._id}
                             lat={point.location.coordinates[0]}
                             lng={point.location.coordinates[1]}
+                            className='point'
                         />
                     )
+                }
+                { filterRadius &&
+                <Marker
+                    className="filter"
+                    key={'filter'}
+                    lat={filterRadius.coordinates.lat}
+                    lng={filterRadius.coordinates.lng}
+                    width={radW}
+                    height={radH}
+                />
                 }
             </GoogleMapReact>
         </div>

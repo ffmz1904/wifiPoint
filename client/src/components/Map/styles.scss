@@ -4,7 +4,7 @@
   width: 50%;
   height: 100%;
 
-  .Marker {
+  .Marker.point {
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -18,6 +18,18 @@
     &:hover {
       opacity: 0.9;
       box-shadow: 0 0 3px 3px $color_blue;
+    }
+  }
+
+  .Marker.filter {
+    border-radius: 100%;
+    background: red;
+    opacity: 0.5;
+    div {
+      width: 6px;
+      height: 6px;
+      background-color: #000;
+      border-radius: 100%;
     }
   }
 }
