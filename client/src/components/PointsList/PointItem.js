@@ -7,7 +7,7 @@ import ConfirmModal from "../Modals/ConfirmModal";
 import UpdatePoint from "../Modals/UpdatePoint";
 import {deletePoint} from "../../actions/wifiPoints";
 
-const PointItem = ({ point, isAdmin, deletePoint }) => {
+const PointItem = ({ point, isAdmin, deletePoint, userId }) => {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
@@ -50,6 +50,11 @@ const PointItem = ({ point, isAdmin, deletePoint }) => {
                 <Button color="red" onClick={() => setOpenDeleteModal(true)}>Delete</Button>
             </div>
             }
+            { !isAdmin && userId === point.userId &&
+            <div className="actions">
+                <Button color="yellow" onClick={() => setOpenUpdateModal(true)}>Update</Button>
+            </div>
+            }
         </div>
     );
 };
@@ -58,7 +63,8 @@ PointItem.propTypes = {
     point: PropTypes.object.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     editPoint: PropTypes.func.isRequired,
-    deletePoint: PropTypes.func.isRequired
+    deletePoint: PropTypes.func.isRequired,
+    userId: PropTypes.string.isRequired
 }
 
 const actions = {
@@ -68,7 +74,8 @@ const actions = {
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 const mapStateToProps = ({ user }) => ({
-    isAdmin: user.isAdmin
+    isAdmin: user.isAdmin,
+    userId: user.data._id
 });
 
 export default connect(

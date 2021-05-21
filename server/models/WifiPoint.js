@@ -12,6 +12,7 @@ const locationSchema = new Schema({
 
 const wifiPointSchema = new Schema({
     name: { type: String, required: true },
+    userId: { type: Schema.Types.ObjectId, required: true },
     location: locationSchema,
     address: { type: String, required: true },
     type: { type: String, required: true },

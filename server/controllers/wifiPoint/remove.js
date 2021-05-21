@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
 
     try {
         const point = await WifiPoint.findById(id);
-        console.log('Point => ', point);
+
         if (!point) {
-            res.status(404).json({
+            return res.status(404).json({
                 error: true,
                 message: ERROR.POINT_NOT_FOUND
             });

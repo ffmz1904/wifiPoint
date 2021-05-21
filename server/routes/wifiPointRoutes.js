@@ -5,7 +5,7 @@ const AuthMiddleware = require('../middlewares/AuthMiddleware');
 const CheckRole = require('../middlewares/CheckRole');
 
 router.post('/', AuthMiddleware, wifiPointController.create);
-router.put('/:id', AuthMiddleware, CheckRole, wifiPointController.update);
+router.put('/:id', AuthMiddleware, wifiPointController.update);
 router.delete('/:id', AuthMiddleware, CheckRole, wifiPointController.remove);
 router.get('/', wifiPointController.getAll);
 router.post('/filter', wifiPointController.filterPoint);

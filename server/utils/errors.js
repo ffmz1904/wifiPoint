@@ -6,6 +6,7 @@ module.exports = {
         BAD_REQUEST: "Bad request!",
         BAD_PASSWORD: "Bad password",
         UNAUTHORIZED: "User not authorized!",
+        FORBIDDEN: "Forbidden!",
         POINT_NOT_FOUND: "Point not found!"
     }
 };

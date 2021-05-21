@@ -3,6 +3,7 @@ const WifiPoint = require('../../models/WifiPoint');
 
 module.exports = async (req, res) => {
     const { name, coordinates, address, type, speed, frequency, password } = req.body;
+    const user = req.user;
 
     try {
         const point = await WifiPoint.create({
@@ -12,6 +13,7 @@ module.exports = async (req, res) => {
             speed,
             frequency,
             password,
+            userId: user._id,
             location: { type: 'Point', coordinates: [ coordinates.lat, coordinates.lng ] },
         });
 

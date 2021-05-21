@@ -13,6 +13,7 @@ const CreatePoint = ({
     open,
     close,
     createPoint,
+    userId
 }) => {
     const [name, setName] = useState('');
     const [place, setPlace] = useState('');
@@ -33,6 +34,7 @@ const CreatePoint = ({
             return setError("min pass 8");
         } else {
             createPoint({
+                userId,
                 name,
                 type,
                 speed,
@@ -131,13 +133,18 @@ CreatePoint.propTypes = {
     open: PropTypes.bool.isRequired,
     close: PropTypes.func.isRequired,
     createPoint: PropTypes.func.isRequired,
+    userId: PropTypes.string.isRequired,
 };
 
 const actions = { createPoint };
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
+const mapStateToProps = ({ user }) => ({
+    userId: user.data._id
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(CreatePoint);

@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
         const user = await User.findById(req.user._id);
 
         if (!user) {
-            res.status(500).json({
+            return res.status(500).json({
                 error: true,
                 message: ERROR.USER_NOT_FOUND
             });

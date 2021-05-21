@@ -147,7 +147,7 @@ const PointFilter = ({
                         <Form.Radio
                             label='All'
                             value='allFrequency'
-                            checked={type === 'allFrequency'}
+                            checked={frequency === 'allFrequency'}
                             onChange={() => setFrequency('allFrequency')}
                         />
                         <Form.Radio
@@ -172,7 +172,7 @@ const PointFilter = ({
             }
         </div>
     );
-};
+}
 
 PointFilter.propTypes = {
     filterPoints: PropTypes.func.isRequired,
