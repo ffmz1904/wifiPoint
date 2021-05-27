@@ -63,7 +63,12 @@ const PointFilter = ({
            filter.coordinates = coordinates;
         }
 
-        setFilterMarker({ coordinates, radius });
+        if (place.formatted_address && coordinates && radius) {
+            setFilterMarker({ coordinates, radius });
+        } else {
+            setFilterMarker(false);
+        }
+
         filterPoints(filter);
     }
 

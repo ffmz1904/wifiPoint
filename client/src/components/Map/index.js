@@ -19,7 +19,7 @@ const Map = ({
         lat: 48.6208,
         lng: 22.287883
     };
-
+    console.log(filterRadius)
     if (filterRadius) {
         const {w, h} = meters2ScreenPixels(Number(filterRadius.radius) * 2, {lat: filterRadius.coordinates.lat, lng: filterRadius.coordinates.lng}, zoom);
         radW = w;
